@@ -1,0 +1,121 @@
+* {     /* aqui estamos definindo coisa "globais" no nosso css */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{ /* uma forma de dizer que a raiz será o conjunto de elementos que irão ser os "primordiais" */
+    --text-color: white;
+    --bg-url: url(/assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.2);
+    --surface-color: rgba(255, 255, 255, 0.05); 
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.light{ /* a classe para nosso tema claro com as definições de cores e comportamento do CSS neste modo */
+    --text-color: black;
+    --bg-url: url(/assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(/assets/sun.svg);
+}
+
+body *{ /* aqui está sendo inserido definições que estarão presentes em todo o "corpo" da página */
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+body {
+    background-image: var(--bg-url);
+    background-repeat: no-repeat; /* não irá repetir */
+    background-position: top center; /* posicionar a imagem */
+    background-size: cover; /* cobrir toda a área visível*/
+
+    /*background: color image repeat position/size */
+
+    background: var(--bg-url) no-repeat top center/cover;
+
+    /* a forma acima é a forma mais curta de se programar todo o bloco */
+}
+
+#container {
+    width: 360px;
+    margin: 56px auto 0px auto; /* irá "empurrar a caixa" para todos os lados /exceto cima e baixo/ */
+ /* margin: top right bottom left */
+    padding: 0 24px;
+}
+
+#profile{
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img{
+    width: 112px;
+}
+
+#profile p{
+    font-weight: 500; /* acima de 400 o texto fica bold */
+    line-height: 24px; /* definindo a altura da linha */
+    margin-top: 8px;
+}
+
+/* links da lista */
+
+ul{
+    list-style: none; /* este comando faz com que o CSS tire todo tipo de estilo da lista */
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* espaço entre os elementos da lista*/
+    padding: 24px 0;
+}
+
+ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); /* <-- usamos esse por conta de alguns navegadores como safari e opera n aceitarem o de cima */
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+ul li a:hover{
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+#redes-links{
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 24px 0;
+    font-size: 24px;
+}
+
+#redes-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#redes-links a:hover{
+    background:  var(--highlight-color);
+}
+
+footer{
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
